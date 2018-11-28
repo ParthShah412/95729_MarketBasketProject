@@ -67,11 +67,12 @@ class DataCleaning:
             pk.dump(transaction_list,fp)
             
 if __name__ == '__main__':
-#    datahandler = DataHandling()
-#    datahandler.save_data('Data/instacart/Merged_data.csv', 
-#                          datahandler.merge_data("Data/instacart/order_products__prior.csv",
-#                                                 "Data/instacart/order_products__train.csv"),
-#                                                 ['order_id', 'product_id'])
+    #Place the order_products__prior.csv and  order_products__train.csv into  Data/instacart/
+    datahandler = DataHandling()
+    datahandler.save_data('Data/instacart/Merged_data.csv', 
+                          datahandler.merge_data("Data/instacart/order_products__prior.csv",
+                                                 "Data/instacart/order_products__train.csv"),
+                                                 ['order_id', 'product_id'])
     df = datahandler.load_data('Data/instacart/Merged_data.csv')
     print(df.values[0,:].shape)
     dataanalyser = DataCleaning(df)
